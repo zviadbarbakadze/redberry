@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/redberry/static/css/main.7c80ab93.css",
+    "main.js": "/redberry/static/js/main.7f535cca.js",
+    "static/media/foto.png": "/redberry/static/media/foto.832365579848b64968d0.png",
+    "static/media/laptop.jpg": "/redberry/static/media/laptop.76888f6a7576869b88ac.jpg",
+    "static/media/LOGO-2.png": "/redberry/static/media/LOGO-2.065c53f5e3d5d6fd73f9.png",
+    "index.html": "/redberry/index.html",
+    "main.7c80ab93.css.map": "/redberry/static/css/main.7c80ab93.css.map",
+    "main.7f535cca.js.map": "/redberry/static/js/main.7f535cca.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7c80ab93.css",
+    "static/js/main.7f535cca.js"
+  ]
+}
