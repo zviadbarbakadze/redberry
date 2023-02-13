@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import React, { useContext, useEffect, useState } from "react";
+
 import Experience from "./Experience";
 import Knowledge from "./Knowledge";
 import PersonalInfo from "./PersonalInfo";
@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
+import { Body, Button, Footer, Header, Myform } from "./Styles";
 
 const schema = yup.object().shape({
   name: yup
@@ -38,6 +39,9 @@ const schema = yup.object().shape({
   description1: yup.string().min(2),
   institute: yup.string().required().min(2),
   degree: yup.string().min(2),
+  image: yup.object().shape({
+    name: yup.string().required(),
+  }),
 });
 
 export default function Form() {
@@ -52,18 +56,18 @@ export default function Form() {
   });
   const submitForm = (data) => {
     console.log(data);
-    axios
-      .post("https://resume.redberryinternship.ge/api/cvs", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // axios
+    //   .post("https://resume.redberryinternship.ge/api/cvs", data, {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
   };
 
   const pageDisplay = () => {
@@ -101,24 +105,3 @@ export default function Form() {
     </Myform>
   );
 }
-const Myform = styled.form`
-  width: 50%;
-  background-color: rgb(250, 250, 250);
-  height: 100vh;
-`;
-const Header = styled.div``;
-const Body = styled.div``;
-const Footer = styled.div`
-  display: flex;
-  justify-content: right;
-  padding: 20px;
-`;
-const Button = styled.button`
-  background-color: #6b40e3;
-  color: white;
-  width: 151px;
-  border-radius: 4px;
-  cursor: pointer;
-  height: 48px;
-  border: none;
-`;

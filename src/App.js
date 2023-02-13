@@ -1,13 +1,41 @@
+import { createContext, useState } from "react";
+import styled from "styled-components";
 import "./App.css";
 import Form from "./components/Form";
 import Home from "./components/Home";
+import Interface from "./components/Interface";
 
-function App() {
+export const UserContext = createContext();
+
+export default function App() {
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    image: "",
+    about: "",
+    email: "",
+    phone: "",
+    position: "",
+    employer: "",
+    startDate: "",
+    dueDate: "",
+    description: "",
+    institute: "",
+    degru: "",
+    dueDate1: "",
+    description1: "",
+  });
   return (
-    <div className="App">
-      <Form />
-    </div>
+    <Container>
+      <UserContext.Provider value={{ user, setUser }}>
+        <Form />
+        <Interface />
+      </UserContext.Provider>
+    </Container>
   );
 }
 
-export default App;
+const Container = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
